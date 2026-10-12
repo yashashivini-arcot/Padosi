@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-const API_URL = 'http://padosi-abx.onrender.com/api';
+const API_URL = 'http://padosi-abix.onrender.com/api';
 
 export const CATEGORIES = ['Household Items', 'Tools', 'Kitchen Items', 'Personal Assistance', 'Other'];
 
