@@ -1,0 +1,468 @@
+@import url('https://fonts.googleapis.com/css2?family=Baloo+2:wght@400;500;600;700&family=Nunito:wght@400;500;600;700&display=swap');
+
+:root {
+  --neem-green: #214E3D;
+  --sage-green: #91A582;
+  --mitti-cream: #F7F0E3;
+  --terracotta: #D96B45;
+  --haldi-yellow: #E9AA4F;
+  --mango-yellow: #F4B942;
+  --coffee-brown: #59402F;
+  --white: #FFFFFF;
+  
+  --font-heading: 'Baloo 2', cursive;
+  --font-body: 'Nunito', sans-serif;
+  
+  --shadow-sm: 0 1px 2px rgba(89, 64, 47, 0.05);
+  --shadow-md: 0 4px 12px -2px rgba(89, 64, 47, 0.08);
+  --shadow-lg: 0 10px 20px -3px rgba(89, 64, 47, 0.1);
+  
+  --radius-md: 6px;
+  --radius-lg: 10px;
+  --radius-xl: 14px;
+  --radius-full: 9999px;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+.brand-logo {
+  font-family: var(--font-heading);
+  color: var(--mango-yellow);
+  letter-spacing: 0.5px;
+  font-weight: 700;
+  line-height: 1.2;
+}
+
+.brand-logo-light-bg {
+  /* On cream background, use a dark green outline for legibility */
+  -webkit-text-stroke: 1.5px var(--neem-green);
+  text-shadow: 2px 2px 0px rgba(33, 78, 61, 0.2);
+}
+
+.brand-logo-dark-bg {
+  /* On neem green background, mango yellow stands out naturally, but a subtle shadow adds depth */
+  text-shadow: 2px 2px 0px rgba(0, 0, 0, 0.2);
+}
+
+body {
+  font-family: var(--font-body);
+  background-color: var(--mitti-cream);
+  color: var(--coffee-brown);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-heading);
+  color: var(--neem-green);
+  font-weight: 700;
+  line-height: 1.2;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+button {
+  font-family: var(--font-body);
+  cursor: pointer;
+  border: none;
+  background: none;
+}
+
+/* Typography Utilities */
+.heading-xl { font-size: 2.5rem; letter-spacing: -0.02em; }
+.heading-lg { font-size: 2rem; letter-spacing: -0.01em; }
+.heading-md { font-size: 1.5rem; }
+.heading-sm { font-size: 1.25rem; }
+
+.text-sm { font-size: 0.875rem; }
+.text-xs { font-size: 0.75rem; }
+.text-md { font-size: 1rem; }
+
+/* General Layout Utilities */
+.container {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+
+.flex { display: flex; }
+.flex-col { flex-direction: column; }
+.items-center { align-items: center; }
+.justify-between { justify-content: space-between; }
+.justify-center { justify-content: center; }
+.gap-1 { gap: 0.25rem; }
+.gap-2 { gap: 0.5rem; }
+.gap-3 { gap: 0.75rem; }
+.gap-4 { gap: 1rem; }
+.gap-6 { gap: 1.5rem; }
+.gap-8 { gap: 2rem; }
+
+.w-full { width: 100%; }
+.h-full { height: 100%; }
+.mb-1 { margin-bottom: 0.25rem; }
+.mb-2 { margin-bottom: 0.5rem; }
+.mb-4 { margin-bottom: 1rem; }
+.mb-6 { margin-bottom: 1.5rem; }
+.mb-8 { margin-bottom: 2rem; }
+.mt-4 { margin-top: 1rem; }
+.mt-8 { margin-top: 2rem; }
+
+/* Buttons */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 0.5rem 1.25rem;
+  border-radius: var(--radius-md);
+  font-weight: 600;
+  transition: all 0.2s ease;
+  font-size: 1rem;
+}
+
+.btn-primary {
+  background-color: var(--neem-green);
+  color: var(--white);
+  border: 1px solid var(--neem-green);
+}
+
+.btn-primary:hover {
+  background-color: #17382B;
+  border-color: #17382B;
+}
+
+.btn-secondary {
+  background-color: var(--sage-green);
+  color: var(--white);
+}
+
+.btn-secondary:hover {
+  background-color: #798C6A;
+}
+
+.btn-accent {
+  background-color: var(--terracotta);
+  color: var(--white);
+}
+
+.btn-accent:hover {
+  background-color: #C05A38;
+}
+
+.btn-outline {
+  background-color: transparent;
+  border: 1px solid var(--neem-green);
+  color: var(--neem-green);
+}
+
+.btn-outline:hover {
+  background-color: rgba(33, 78, 61, 0.05);
+}
+
+.btn-text {
+  color: var(--neem-green);
+  padding: 0.5rem;
+  font-weight: 600;
+}
+
+.btn-text:hover {
+  background-color: rgba(33, 78, 61, 0.05);
+  border-radius: var(--radius-md);
+}
+
+/* Noticeboard Entry (Card replacement) */
+.notice-entry {
+  background-color: var(--white);
+  border-radius: var(--radius-md);
+  padding: 1.5rem;
+  border: 1px solid rgba(145, 165, 130, 0.3);
+  position: relative;
+  transition: transform 0.1s ease, box-shadow 0.2s ease;
+}
+
+.notice-entry:hover {
+  box-shadow: var(--shadow-sm);
+  border-color: rgba(145, 165, 130, 0.6);
+}
+
+/* Forms */
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.form-label {
+  font-weight: 600;
+  color: var(--coffee-brown);
+  font-family: var(--font-heading);
+  font-size: 1.1rem;
+}
+
+.form-input, .form-textarea, .form-select {
+  padding: 0.75rem 1rem;
+  border: 1px solid var(--sage-green);
+  border-radius: var(--radius-md);
+  font-family: var(--font-body);
+  font-size: 1rem;
+  background-color: var(--white);
+  color: var(--coffee-brown);
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.form-input:focus, .form-textarea:focus, .form-select:focus {
+  outline: none;
+  border-color: var(--neem-green);
+  box-shadow: 0 0 0 2px rgba(33, 78, 61, 0.1);
+}
+
+.form-error {
+  color: var(--terracotta);
+  font-size: 0.875rem;
+  margin-top: 0.25rem;
+}
+
+/* Layout Specific */
+.app-layout {
+  display: flex;
+  min-height: 100vh;
+}
+
+.sidebar {
+  width: 250px;
+  background-color: var(--neem-green);
+  color: var(--white);
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  position: fixed;
+  height: 100vh;
+  left: 0;
+  top: 0;
+  z-index: 10;
+}
+
+.main-wrapper {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  margin-left: 250px;
+  min-height: 100vh;
+}
+
+.top-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 2rem;
+  border-bottom: 1px solid rgba(145, 165, 130, 0.2);
+  background-color: var(--mitti-cream);
+  position: sticky;
+  top: 0;
+  z-index: 5;
+}
+
+.header-controls {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.header-icon-btn {
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+  padding: 0.5rem;
+  border-radius: var(--radius-md);
+  color: var(--coffee-brown);
+  text-decoration: none;
+  position: relative;
+  transition: background-color 0.2s;
+  min-width: 40px;
+  min-height: 40px;
+  justify-content: center;
+}
+
+.header-icon-btn:hover {
+  background-color: rgba(145, 165, 130, 0.15);
+}
+
+.streak-count {
+  font-weight: 700;
+  font-size: 1rem;
+  color: var(--coffee-brown);
+}
+
+.notif-badge {
+  position: absolute;
+  top: 4px;
+  right: 4px;
+  background-color: var(--terracotta);
+  color: var(--white);
+  font-size: 0.65rem;
+  font-weight: 700;
+  width: 16px;
+  height: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  border: 2px solid var(--mitti-cream);
+}
+
+.profile-avatar {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background-color: var(--sage-green);
+  color: var(--white);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  font-size: 1rem;
+  margin-left: 0.5rem;
+}
+
+.main-content {
+  flex: 1;
+  padding: 2rem;
+  max-width: 1000px;
+  margin: 0 auto;
+  width: 100%;
+}
+
+@media (max-width: 768px) {
+  .app-layout {
+    flex-direction: column;
+  }
+  
+  .sidebar {
+    display: none;
+  }
+  
+  .mobile-only-logo {
+    display: block !important;
+  }
+  
+  .page-title {
+    display: none; /* Hide page title on mobile to make room for logo if needed, or keep both? Let's just keep both or hide title. Let's keep both, but smaller title maybe. Actually, the prompt says "Update every instance of the logo consistently... including the header". Just showing the logo is fine. */
+  }
+  
+  .main-wrapper {
+    margin-left: 0;
+  }
+  
+  .top-header {
+    padding: 1rem;
+  }
+  
+  .main-content {
+    padding: 1.5rem 1rem;
+    padding-bottom: 5rem;
+  }
+}
+
+.bottom-nav {
+  display: none;
+}
+
+@media (max-width: 768px) {
+  .bottom-nav {
+    display: flex;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: var(--white);
+    border-top: 1px solid rgba(145, 165, 130, 0.2);
+    justify-content: space-around;
+    padding: 0.5rem;
+    z-index: 100;
+  }
+}
+
+.nav-item {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.75rem 1rem;
+  border-radius: var(--radius-md);
+  color: rgba(247, 240, 227, 0.8);
+  font-weight: 500;
+  transition: all 0.2s;
+  margin-bottom: 0.5rem;
+}
+
+.nav-item:hover, .nav-item.active {
+  background-color: rgba(247, 240, 227, 0.15);
+  color: var(--white);
+}
+
+.mobile-nav-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.25rem;
+  color: var(--sage-green);
+  font-size: 0.75rem;
+  padding: 0.5rem;
+}
+
+.mobile-nav-item.active {
+  color: var(--neem-green);
+}
+
+/* Badges */
+.badge {
+  display: inline-block;
+  padding: 0.2rem 0.6rem;
+  border-radius: var(--radius-md);
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.badge-green { background-color: rgba(145, 165, 130, 0.15); color: var(--neem-green); border: 1px solid rgba(145, 165, 130, 0.3); }
+.badge-yellow { background-color: rgba(233, 170, 79, 0.15); color: #B07B2D; border: 1px solid rgba(233, 170, 79, 0.3); }
+.badge-red { background-color: rgba(217, 107, 69, 0.1); color: var(--terracotta); }
+
+/* Illustrations Placeholder */
+.illustration {
+  width: 100%;
+  max-width: 250px;
+  height: auto;
+  margin: 0 auto 1.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.illustration svg {
+  width: 100%;
+  height: auto;
+}
+
+/* Editorial elements */
+.editorial-separator {
+  height: 1px;
+  background-color: rgba(145, 165, 130, 0.2);
+  margin: 1.5rem 0;
+  width: 100%;
+}
+
+.editorial-header {
+  border-bottom: 2px solid var(--neem-green);
+  padding-bottom: 0.5rem;
+  margin-bottom: 1.5rem;
+  display: inline-block;
+}
